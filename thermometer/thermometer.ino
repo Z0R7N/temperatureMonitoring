@@ -3,9 +3,9 @@
 
 const int dataGetDelay = 15*60*1000; // delay between record data to table
 
-const char* ssid = "DIR-1";
-const char* password =  "pass";
-String GAS_ID = "AKfycby3-DBU1cLZ0JI5-eOSssIEkn4pbQ4jzgY2pFxApj5KjRRayY3eR5xiYtEBcszAg";
+const char* ssid = "your wifi";
+const char* password =  "yor password";
+String GAS_ID = "your code for google sheets";
 const char* host = "script.google.com";
 const int httpsPort = 443;
 WiFiClientSecure client;
@@ -28,7 +28,8 @@ void setup() {
 
 void loop() {
 	bool correctData = sensor();
-	
+	digitalWrite(LED_BUILTIN, 0);
+	delay(20);
 	bool cnct = checkConnection();
 	Serial.print("check connection = ");
 	Serial.println(cnct);
@@ -124,6 +125,8 @@ void connectWifi(){
 }
 
 bool sensor(){
+	digitalWrite(LED_BUILTIN, 1);
+	delay(90);
 	// check for connection
 	bool connectSns = true;
 	// data from pin
