@@ -1,7 +1,7 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
 
-const int dataGetDelay = 15*60*1000; // delay between record data to table
+const int dataGetDelay = 5000;//15*60*1000; // delay between record data to table
 
 const char* ssid = "DIR-1";
 const char* password =  "3!r@fdQX";
@@ -52,6 +52,10 @@ void loop() {
 			
 			sendData();
 			
+			 Serial.println("deep sleep for 15 seconds");
+			 ESP.deepSleep(15e6);
+			 Serial.println("deep sleep end");
+			 
 			delay(dataGetDelay);
 		}
 	}
@@ -130,7 +134,7 @@ void connectWifi(){
 bool sensor(){
 	digitalWrite(LED_BUILTIN, 1);
 	digitalWrite(pinPower, 1);
-	delay(1200);
+	delay(2000);
 	// check for connection
 	bool connectSns = true;
 	// data from pin
