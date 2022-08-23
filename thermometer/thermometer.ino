@@ -48,7 +48,7 @@ void loop() {
 			
 			sendData();
 			
-			ESP.deepSleep(600e6);
+			ESP.deepSleep(935e6);
 		}
 	}
 	
